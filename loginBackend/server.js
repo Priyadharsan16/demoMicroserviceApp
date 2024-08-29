@@ -47,9 +47,9 @@ app.post('/check', async (req, res) => {
   const existingUser = await User.findOne({ username, password });
 
   if (existingUser) {
-    res.send('Username and password already exist in the database');
+    res.send('Login successful');
   } else {
-    res.send('Username and password do not exist in the database');
+    res.send('Invalid username or password');
   }
 });
 
