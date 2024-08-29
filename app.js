@@ -43,3 +43,33 @@ function login() {
         alert('Please fill in all fields.');
     }
 }
+const form = document.getElementById('loginForm');
+form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+
+    const response = await fetch('http://localhost:3000/login', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ username, password }),
+    });
+
+    const result = await response.text();
+    alert(result);
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('loginForm');
+
+    form.addEventListener('submit', (event) => {
+        event.preventDefault(); // Prevent the default form submission
+        
+        // Display a popup message
+        alert('Signed up successfully!');
+    });
+});
+
