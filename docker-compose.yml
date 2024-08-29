@@ -1,10 +1,24 @@
 version: '3.8'
 
 services:
-  app:
-    build: .
+  backend:
+    image: my-backend
     ports:
       - "3000:3000"
+    environment:
+      - MONGO_URL=mongodb://db:27017/loginDB
+    depends_on:
+      - db
+  db:      
+    image: mongo
+    ports:
+      - "27017:27017"
     volumes:
-      - .:/usr/src/app
-    command: ["node", "server.js"]
+      - ./data:/data/db
+
+  mysite:
+    image: my-site
+    ports:
+      - "8080:80"
+    depends_on:
+      - backend

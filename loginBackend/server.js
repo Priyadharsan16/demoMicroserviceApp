@@ -2,14 +2,23 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
+const mongoURL = process.env.MONGO_URL || 'mongodb://db:27017/loginDB';
+
+
+
+
 const app = express();
 app.use(bodyParser.json());
 
-// Connect to MongoDB
-mongoose.connect('mongodb://localhost:27017/loginDB', {
+mongoose.connect(mongoURL, {
   useNewUrlParser: true,
-  useUnifiedTopology: true,
+  useUnifiedTopology: true
+}).then(() => {
+  console.log('Connected to MongoDB');
+}).catch((error) => {
+  console.error('MongoDB connection error:', error);
 });
+
 
 const userSchema = new mongoose.Schema({
   username: String,
