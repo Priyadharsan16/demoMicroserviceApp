@@ -91,19 +91,21 @@ const loginButton = document.getElementById('LoginButtonSubmit');
 loginButton.addEventListener('click', async (e) => {
     e.preventDefault();
 
-    const username = document.getElementById('username').value;
-    const password = document.getElementById('password').value;
+    const loginusername = document.getElementById('loginUsername').value;
+    const loginpassword = document.getElementById('loginPassword').value;
 
     const response = await fetch('http://localhost:3000/check', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ username, password }),
+        body: JSON.stringify({ loginusername, loginpassword }),
     });
+    // alert('logged up successfully!');
 
     const result = await response.text();
     alert(result);
+    
 });
 
 // document.addEventListener('DOMContentLoaded', () => {

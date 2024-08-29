@@ -5,8 +5,8 @@ url = 'http://localhost:3000/check'
 
 # Define the payload
 payload = {
-    'username': 'testuser',
-    'password': 'testpassword'
+    'username': 'test',
+    'password': 'test'
 }
 
 # Make a POST request to the API
