@@ -1,19 +1,24 @@
-# Project Name
+**Microservice based Login Application with Docker**
 
-A brief description of what your project does, its purpose, and any relevant context.
+**Description:**
+This project demonstrates the use of Docker to build, deploy, and manage a microservices-based application. The application is a simple login system consisting of a front-end website and a back-end API connected to a MongoDB database. The entire stack is containerized using Docker, allowing for easy deployment and scalability.
 
 
 ### Prerequisites
-
-- List any prerequisites needed to install and run the project (e.g., Python, Node.js, Docker).
+- Docker
+- Docker Compose
+- Node.js and npm (back-end)
+- MongoDB
+- Git
+- Linux (Ubuntu)
+- HTML, CSS, Javascript (front-end)
   
 ### Steps
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/username/project-name.git
-   cd project-name
-A brief description of what your project does, its purpose, and any relevant context.
+   git clone https://github.com/Priyadharsan16/demoMicroserviceApp.git
+   cd demoMicroserviceApp
 
 ## Table of Contents
 
@@ -28,16 +33,12 @@ A brief description of what your project does, its purpose, and any relevant con
 
 ## Installation
 
-### Prerequisites
-
-- List any prerequisites needed to install and run the project (e.g., Python, Node.js, Docker).
-  
 ### Steps
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/username/project-name.git
-   cd project-name
+   git clone https://github.com/Priyadharsan16/demoMicroserviceApp.git
+   cd demoMicroserviceApp
    ```
    
 2. **Install dependencies:**
@@ -54,28 +55,77 @@ A brief description of what your project does, its purpose, and any relevant con
 
 ## Usage
 
-Provide instructions on how to use the project and any relevant examples.
+**Building the Docker Images:**
+
+# Build the front-end container
+docker build -t my-site .
+
+# Navigate to the backend directory and build the back-end container
+cd loginBackend
+docker build -t my-backend .
+cd ..
+
+**Running the Application:**
+
+# Start the services using Docker Compose
+docker-compose up
+The front-end will be accessible at http://localhost:8080.
+The back-end API will be accessible at http://localhost:3000.
+
 
 ## Configuration
 
-Explain any configuration options available for the project and how to use them.
+docker-compose.yml defines the services:
+
+Backend Service (my-backend): Runs on port 3000 and connects to MongoDB.
+Database Service (db): MongoDB instance running on port 27017.
+Front-End Service (my-site): Serves the static front-end files on port 8080.
+
+Environment Variables:
+
+MONGO_URL: Specifies the MongoDB connection URL. Modify this in docker-compose.yml if needed.
+
+Configuration Files:
+
+Modify server.js in the loginBackend directory for backend-specific settings.
 
 ## Features
 
-List the main features of the project.
+User Registration: Allows users to sign up with a username and password.
+
+User Login: Allows users to log in with their registered credentials.
+
+Persistent Data Storage: User data is stored in a MongoDB database.
+
+Front-End and Back-End Separation: Utilizes Docker containers to separate the front-end and back-end services.
+
 
 ## Contributing
 
-Provide guidelines for contributing to the project and how to submit pull requests.
+Fork the Repository:
+Create a personal copy of the repository on GitHub.
+
+Clone the Repository:
+git clone https://github.com/Priyadharsan16/demoMicroservicesApp.git
+
 
 ## License
 
-Specify the license under which the project is distributed.
+This project is licensed under the MIT License.
 
 ## Contact
 
-Provide contact information for users to reach out for support or inquiries.
+For support or inquiries, please contact:
+
+Email: 
+sripriyadharsan@gmail.com
+rnsanthosh4890@gmail.com
+sanx.9702@gmail.com
+
 
 ## Acknowledgments
 
-Acknowledge any individuals or resources that have contributed to the project.
+Docker: For containerizing the application.
+MongoDB: For providing the database solution.
+CSS: For front-end styling.
+Node.js: For the back-end server.
